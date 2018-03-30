@@ -1,13 +1,22 @@
 package com.leap.grade;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class GradeActivity extends AppCompatActivity {
+import com.leap.grade.util.BaseBarActivity;
+
+/**
+ * Created by ylwei on 2018/3/28.
+ */
+
+public class GradeActivity extends BaseBarActivity {
 
   @Override
-  protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
+  protected void initComponent() {
     setContentView(R.layout.activity_grade);
+  }
+
+  @Override
+  protected void loadData(Bundle savedInstanceState) {
+
   }
 }

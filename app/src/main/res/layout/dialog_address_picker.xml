@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="index"
+            type="Integer"/>
+
+        <variable
+            name="item"
+            type="com.leap.grade.data.BAddress"/>
+
+        <variable
+            name="presenter"
+            type="com.leap.grade.widget.AddressPickerDialog.Presenter"/>
+
+        <import type="android.view.View"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:background="@color/paleGrey"
+            tools:ignore="UselessParent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/address"
+                android:textColor="@color/charcoalGrey"
+                android:textSize="@dimen/smallTitle"
+                tools:ignore="RelativeOverlap"/>
+
+            <ImageView
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="end"
+                android:contentDescription="@null"
+                android:onClick="@{()->presenter.onCancel()}"
+                android:padding="10dp"
+                android:src="@mipmap/ic_close_grey"/>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:background="@color/paleGrey"
+            android:gravity="center_vertical"
+            android:paddingLeft="19dp"
+            android:paddingRight="19dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:onClick="@{()->presenter.onTitle(0)}"
+                android:orientation="vertical"
+                android:visibility="@{item.province!=null?View.VISIBLE:View.GONE}">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:text="@{item.province.name}"
+                    android:textColor="@{index==0?@color/lipstick:@color/charcoalGrey}"
+                    android:textSize="@dimen/largeText"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:background="@{index==0?@color/lipstick:@color/paleGrey}"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:onClick="@{()->presenter.onTitle(1)}"
+                android:orientation="vertical"
+                android:visibility="@{item.city!=null?View.VISIBLE:View.GONE}">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:text="@{item.city.name}"
+                    android:textColor="@{index==1?@color/lipstick:@color/charcoalGrey}"
+                    android:textSize="@dimen/largeText"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:background="@{index==1?@color/lipstick:@color/paleGrey}"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:onClick="@{()->presenter.onTitle(2)}"
+                android:orientation="vertical"
+                android:visibility="@{item.district!=null?View.VISIBLE:View.GONE}">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:text="@{item.district.name}"
+                    android:textColor="@{index==2?@color/lipstick:@color/charcoalGrey}"
+                    android:textSize="@dimen/largeText"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:background="@{index==2?@color/lipstick:@color/paleGrey}"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:onClick="@{()->presenter.onTitle(3)}"
+                android:orientation="vertical"
+                android:visibility="@{item.street!=null?View.VISIBLE:View.GONE}">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:text="@{item.street.name}"
+                    android:textColor="@{index==3?@color/lipstick:@color/charcoalGrey}"
+                    android:textSize="@dimen/largeText"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:background="@{index==3?@color/lipstick:@color/paleGrey}"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:visibility="@{item.street!=null?View.GONE:View.VISIBLE}"
+                tools:ignore="UselessParent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:text="@string/select"
+                    android:textColor="@{index==5?@color/lipstick:@color/charcoalGrey}"
+                    android:textSize="@dimen/largeText"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:background="@{index==5?@color/lipstick:@color/paleGrey}"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/root_rcv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"/>
+
+            <ImageView
+                android:id="@+id/progressbar_iv"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_centerInParent="true"
+                android:contentDescription="@null"
+                android:src="@drawable/loading"/>
+        </RelativeLayout>
+
+    </LinearLayout>
+</layout>

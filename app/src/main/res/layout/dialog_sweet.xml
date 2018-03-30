@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="presenter"
+            type="com.leap.grade.widget.sweet.SweetDialog.Presenter"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_dialog_sweet"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="12dp"
+            tools:ignore="UselessParent">
+
+            <ImageView
+                android:id="@+id/custom_iv"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="12dp"
+                android:contentDescription="@null"
+                android:src="@mipmap/ic_dialog_success"
+                android:visibility="gone"/>
+
+            <TextView
+                android:id="@+id/title_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:maxLines="10"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:textColor="@color/charcoalGrey"
+                android:textSize="@dimen/smallTitle"
+                android:textStyle="bold"
+                android:visibility="gone"/>
+
+            <TextView
+                android:id="@+id/content_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:maxLines="10"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:textColor="@color/coolGrey"
+                android:textSize="@dimen/text"
+                android:visibility="gone"/>
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="12dp"/>
+
+        </LinearLayout>
+
+        <View style="@style/divider_item"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp">
+
+            <TextView
+                android:id="@+id/cancel_btn"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:maxLines="1"
+                android:onClick="@{()->presenter.onCancel()}"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:text="@string/cancel"
+                android:textColor="@color/coolGrey"
+                android:textSize="@dimen/smallTitle"/>
+
+            <View
+                android:layout_width="0.5dp"
+                android:layout_height="match_parent"
+                android:background="@color/silverThree"/>
+
+            <TextView
+                android:id="@+id/confirm_btn"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:maxLines="1"
+                android:onClick="@{()->presenter.onConfirm()}"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:text="@string/confirm"
+                android:textColor="@color/charcoalGrey"
+                android:textSize="@dimen/smallTitle"/>
+        </LinearLayout>
+    </LinearLayout>
+</layout>

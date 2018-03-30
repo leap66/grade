@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="NavigationBar">
+        <attr name="bgColor" format="reference|color"/>
+        <attr name="navigationIcon" format="reference"/>
+        <attr name="titleText" format="string"/>
+        <attr name="titleSize" format="dimension"/>
+        <attr name="titleTextColor" format="color"/>
+        <attr name="actionImage" format="reference"/>
+        <attr name="actionText" format="string"/>
+        <attr name="actionTextSize" format="dimension"/>
+        <attr name="actionTextColor" format="color"/>
+    </declare-styleable>
+</resources>

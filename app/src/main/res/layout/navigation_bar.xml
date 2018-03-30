@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="presenter"
+            type="com.leap.grade.widget.navigation.NavigationBar.Presenter"/>
+    </data>
+
+    <LinearLayout
+        android:id="@+id/root_layout"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/white">
+
+        <ImageView
+            android:id="@+id/back_iv"
+            android:layout_width="44dp"
+            android:layout_height="match_parent"
+            android:contentDescription="@null"
+            android:onClick="@{()->presenter.onBack()}"
+            android:padding="11dp"
+            android:src="@mipmap/ic_title_back"/>
+
+        <Space
+            android:layout_width="44dp"
+            android:layout_height="match_parent"/>
+
+        <TextView
+            android:id="@+id/title_tv"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="1"
+            android:textColor="@color/charcoalGrey"
+            android:textSize="@dimen/smallTitle"
+            android:textStyle="bold"/>
+
+        <LinearLayout
+            android:id="@+id/action_ll"
+            android:layout_width="88dp"
+            android:layout_height="match_parent"
+            android:gravity="end"
+            tools:ignore="UseCompoundDrawables">
+
+            <ImageView
+                android:id="@+id/action_image"
+                android:layout_width="44dp"
+                android:layout_height="match_parent"
+                android:contentDescription="@null"
+                android:onClick="@{()->presenter.onActionImage()}"
+                android:padding="11dp"/>
+
+            <TextView
+                android:id="@+id/action_tv"
+                android:layout_width="44dp"
+                android:layout_height="match_parent"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:maxLines="1"
+                android:onClick="@{()->presenter.onActionText()}"
+                android:textColor="@color/coolGrey"
+                android:textSize="@dimen/text"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</layout>

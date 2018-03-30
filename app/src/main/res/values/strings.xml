@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">Grade</string>
+
+    <string name="confirm">确定</string>
+    <string name="cancel">取消</string>
+    <string name="address">所在地区</string>
+    <string name="select">请选择</string>
+
+    <string name="send_code">发送验证码</string>
+    <string name="send_code_during">已发送</string>
+    <string name="send_code_time">s</string>
 </resources>
