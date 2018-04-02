@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--下拉刷新-->
+    <declare-styleable name="SmartRefreshLayout">
+        <attr name="header_bg" format="color"/>
+        <attr name="foot_bg" format="color"/>
+        <attr name="header_drawable_bg" format="reference"/>
+        <attr name="foot_drawable_bg" format="reference"/>
+        <attr name="state_bg" format="boolean"/>
+    </declare-styleable>
+</resources>

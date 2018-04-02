@@ -9,4 +9,6 @@
     <string name="send_code">发送验证码</string>
     <string name="send_code_during">已发送</string>
     <string name="send_code_time">s</string>
+
+    <string name="load_data">加载中···</string>
 </resources>

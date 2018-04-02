@@ -57,7 +57,7 @@ public abstract class BaseBarActivity extends RxAppCompatActivity {
   }
 
   protected boolean isDarkFont() {
-    return false;
+    return true;
   }
 
   protected boolean keyboardEnable() {
