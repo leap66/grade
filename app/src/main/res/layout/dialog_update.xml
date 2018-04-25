@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="item"
+            type="com.leap.grade.data.UpdateModel"/>
+
+        <variable
+            name="presenter"
+            type="com.leap.grade.widget.updata.UpdateDialog.Presenter"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="260dp"
+            android:layout_height="184dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@null"
+                android:src="@mipmap/update_popup_headerbg"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/update_lab"
+                android:textColor="@color/white"
+                android:textSize="@dimen/smallTitle"/>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/content_ll"
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_margin="20dp"
+                android:layout_weight="1"
+                android:minHeight="100dp"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{String.format(@string/update_version_lab,item.versionName)}"
+                        android:textColor="@color/charcoalGrey"
+                        android:textSize="@dimen/largeText"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="@{item.description}"
+                        android:textColor="@color/coolGrey"
+                        android:textSize="@dimen/text"/>
+
+                </LinearLayout>
+            </ScrollView>
+
+            <View style="@style/divider_title"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:onClick="@{()->presenter.onCancel()}"
+                    android:text="@string/update_cancel"
+                    android:textColor="@color/coolGrey"
+                    android:textSize="@dimen/largeText"
+                    android:visibility="@{item.force?View.GONE:View.VISIBLE}"/>
+
+                <View
+                    android:layout_width="0.5dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/silverTwo"
+                    android:visibility="@{item.force?View.GONE:View.VISIBLE}"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:onClick="@{()->presenter.onUpData()}"
+                    android:text="@string/update_download"
+                    android:textColor="@color/lipstick"
+                    android:textSize="@dimen/largeText"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</layout>

@@ -11,6 +11,8 @@ import android.view.Gravity;
 
 import com.leap.grade.R;
 
+import java.text.MessageFormat;
+
 /**
  * CountTimeTextView : 倒计时控件
  * <p>
@@ -41,8 +43,9 @@ public class CountTimeTextView extends AppCompatTextView {
     timer = new CountDownTimer(totalTime, tickTime) {
       @Override
       public void onTick(long millisUntilFinished) {
-        setText(getResources().getString(R.string.send_code_during) + "("
-            + millisUntilFinished / 1000 + getResources().getString(R.string.send_code_time) + ")");
+        String temp = MessageFormat.format(getResources().getString(R.string.send_code_during),
+            millisUntilFinished / 1000);
+        setText(temp);
       }
 
       @Override
@@ -51,7 +54,8 @@ public class CountTimeTextView extends AppCompatTextView {
         setEnabled(true);
         setText(getResources().getString(R.string.send_code));
       }
-    }.start();
+    };
+    timer.start();
   }
 
   public void finishCount() {

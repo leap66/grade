@@ -6,9 +6,15 @@
     <string name="address">所在地区</string>
     <string name="select">请选择</string>
 
-    <string name="send_code">发送验证码</string>
-    <string name="send_code_during">已发送</string>
-    <string name="send_code_time">s</string>
+    <string name="send_code">获取验证码</string>
+    <string name="send_code_during">已发送({0})s</string>
 
     <string name="load_data">加载中···</string>
+
+    <string name="update_downloading">正在下载</string>
+    <string name="update_download">马上更新</string>
+    <string name="update_cancel">下次更新</string>
+    <string name="update_lab">发现新版本</string>
+    <string name="update_version_lab">%s版本特性：</string>
+    <string name="update_failure">下载失败</string>
 </resources>
