@@ -31,5 +31,6 @@ dependencies {
     compile 'com.gyf.barlibrary:barlibrary:2.2.9'
     compile 'com.nineoldandroids:library:2.4.0'
     compile 'com.tonicartos:superslim:0.4.13'
+    compile 'com.makeramen:roundedimageview:2.3.0'
     testCompile 'junit:junit:4.12'
 }

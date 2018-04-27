@@ -6,9 +6,9 @@ import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 
+import com.leap.base.data.base.UpdateModel;
 import com.leap.base.util.FileUtil;
 import com.leap.grade.R;
-import com.leap.grade.data.UpdateModel;
 import com.leap.grade.databinding.DialogUpdateBinding;
 
 import java.io.File;

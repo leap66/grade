@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CustomBar">
+        <attr name="customHintIcon" format="reference"/>
+        <attr name="customHintImage" format="string"/>
+        <attr name="customIvSize" format="dimension"/>
+        <attr name="customHint" format="string"/>
+        <attr name="customShowDivider" format="boolean"/>
+        <attr name="customShowChevron" format="boolean"/>
+    </declare-styleable>
+</resources>

@@ -2,17 +2,10 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools">
 
-    <data>
-
-        <variable
-            name="presenter"
-            type="com.leap.grade.widget.navigation.NavigationBar.Presenter"/>
-    </data>
-
     <LinearLayout
         android:id="@+id/root_layout"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="44dp"
         android:background="@color/white">
 
         <ImageView
@@ -20,7 +13,6 @@
             android:layout_width="44dp"
             android:layout_height="match_parent"
             android:contentDescription="@null"
-            android:onClick="@{()->presenter.onBack()}"
             android:padding="11dp"
             android:src="@mipmap/ic_title_back"/>
 
@@ -37,8 +29,7 @@
             android:gravity="center"
             android:maxLines="1"
             android:textColor="@color/charcoalGrey"
-            android:textSize="@dimen/smallTitle"
-            android:textStyle="bold"/>
+            android:textSize="@dimen/smallTitle"/>
 
         <LinearLayout
             android:id="@+id/action_ll"
@@ -48,11 +39,10 @@
             tools:ignore="UseCompoundDrawables">
 
             <ImageView
-                android:id="@+id/action_image"
+                android:id="@+id/action_iv"
                 android:layout_width="44dp"
                 android:layout_height="match_parent"
                 android:contentDescription="@null"
-                android:onClick="@{()->presenter.onActionImage()}"
                 android:padding="11dp"/>
 
             <TextView
@@ -62,11 +52,8 @@
                 android:ellipsize="end"
                 android:gravity="center"
                 android:maxLines="1"
-                android:onClick="@{()->presenter.onActionText()}"
                 android:textColor="@color/coolGrey"
                 android:textSize="@dimen/text"/>
         </LinearLayout>
-
     </LinearLayout>
-
 </layout>

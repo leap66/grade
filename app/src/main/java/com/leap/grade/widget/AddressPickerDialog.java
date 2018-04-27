@@ -15,12 +15,12 @@ import android.view.WindowManager;
 
 import com.github.markzhai.recyclerview.BaseViewAdapter;
 import com.github.markzhai.recyclerview.SingleTypeAdapter;
+import com.leap.base.data.base.BAddress;
 import com.leap.base.data.base.BUcn;
 import com.leap.base.listener.OnConfirmListener;
 import com.leap.base.util.DeviceInfoUtil;
 import com.leap.base.util.IsEmpty;
 import com.leap.grade.R;
-import com.leap.grade.data.BAddress;
 import com.leap.grade.databinding.DialogAddressPickerBinding;
 import com.leap.grade.util.DialogUtil;
 

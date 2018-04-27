@@ -9,11 +9,11 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.leap.base.data.base.UpdateModel;
 import com.leap.base.util.DeviceInfoUtil;
 import com.leap.base.util.FileUtil;
 import com.leap.base.util.ToastUtil;
 import com.leap.grade.R;
-import com.leap.grade.data.UpdateModel;
 import com.leap.grade.widget.updata.widget.UpdateTask;
 
 import pub.devrel.easypermissions.AfterPermissionGranted;

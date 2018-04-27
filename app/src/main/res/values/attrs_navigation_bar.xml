@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <declare-styleable name="NavigationBar">
         <attr name="bgColor" format="reference|color"/>
         <attr name="navigationIcon" format="reference"/>
@@ -11,5 +10,6 @@
         <attr name="actionText" format="string"/>
         <attr name="actionTextSize" format="dimension"/>
         <attr name="actionTextColor" format="color"/>
+        <attr name="showIcon" format="boolean"/>
     </declare-styleable>
 </resources>

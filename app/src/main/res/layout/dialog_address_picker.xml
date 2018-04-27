@@ -10,7 +10,7 @@
 
         <variable
             name="item"
-            type="com.leap.grade.data.BAddress"/>
+            type="com.leap.base.data.base.BAddress"/>
 
         <variable
             name="presenter"

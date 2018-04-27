@@ -16,8 +16,7 @@ import com.trello.rxlifecycle.components.support.RxFragment;
  * </> Created by ylwei on 2018/4/24.
  */
 public abstract class BaseBarFragment extends RxFragment {
-  protected View mRootView;
-  protected Context mContext;
+  protected Context context;
   protected boolean mIsVisible;
   protected boolean mIsPrepare;
   protected boolean mIsImmersion;
@@ -26,24 +25,17 @@ public abstract class BaseBarFragment extends RxFragment {
   @Override
   public void onAttach(Context context) {
     super.onAttach(context);
-    this.mContext = context;
+    this.context = context;
   }
 
   @Nullable
   @Override
   public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
       @Nullable Bundle savedInstanceState) {
-    if (mRootView != null) {
-      ViewGroup parent = (ViewGroup) mRootView.getParent();
-      if (parent != null) {
-        parent.removeView(mRootView);
-      }
-    } else {
-      mRootView = initComponent(inflater, container);
-      createEventHandlers();
-      loadData(savedInstanceState);
-    }
-    return mRootView;
+    View rootView = initComponent(inflater, null);
+    createEventHandlers();
+    loadData(savedInstanceState);
+    return rootView;
   }
 
   @Override
@@ -53,17 +45,14 @@ public abstract class BaseBarFragment extends RxFragment {
       mIsPrepare = true;
       mIsImmersion = true;
       onLazyLoad();
-    } else {
-      if (isStatusBarEnabled()) {
-        initStatusBar();
-      }
     }
-    if (statusBarView() != null) {
-      ImmersionBar.setTitleBar(getActivity(), statusBarView());
-    }
+    if (useStatusBar())
+      initStatusBar();
   }
 
   protected void initStatusBar() {
+    if (statusBarView() != null)
+      ImmersionBar.setTitleBar(getActivity(), statusBarView());
     mStatusBar = ImmersionBar.with(getActivity(), this);
     if (isDarkFont())
       mStatusBar.statusBarDarkFont(true, 0.2f);
@@ -105,11 +94,6 @@ public abstract class BaseBarFragment extends RxFragment {
     if (mIsVisible && mIsPrepare) {
       mIsPrepare = false;
     }
-    if (mIsVisible && mIsImmersion && isStatusBarEnabled()) {
-      initStatusBar();
-      // if (statusBarView() != null)
-      // ImmersionBar.setTitleBar(getActivity(), statusBarView());
-    }
   }
 
   protected abstract View initComponent(LayoutInflater inflater, ViewGroup container);
@@ -119,7 +103,7 @@ public abstract class BaseBarFragment extends RxFragment {
   protected void createEventHandlers() {
   }
 
-  protected boolean isStatusBarEnabled() {
+  protected boolean useStatusBar() {
     return true;
   }
 

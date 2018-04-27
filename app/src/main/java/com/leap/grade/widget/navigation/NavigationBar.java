@@ -2,7 +2,6 @@ package com.leap.grade.widget.navigation;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.databinding.DataBindingUtil;
 import android.graphics.drawable.Drawable;
 import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
@@ -18,7 +17,6 @@ import android.widget.TextView;
 import com.leap.base.util.DensityUtil;
 import com.leap.base.util.IsEmpty;
 import com.leap.grade.R;
-import com.leap.grade.databinding.NavigationBarBinding;
 import com.leap.grade.widget.navigation.widget.ImageAction;
 import com.leap.grade.widget.navigation.widget.ImageTextAction;
 import com.leap.grade.widget.navigation.widget.NavigationBarAction;
@@ -29,19 +27,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class NavigationBar extends LinearLayout {
-  private NavigationBarBinding binding;
   private NavigationBarClickListener listener;
   private List<View> actionList;
   private Context context;
-  private int background;
-  private int navigationIcon;
-  private String title;
-  private int titleSize;
-  private int titleColor;
-  private int actionImage;
-  private String action;
-  private int actionSize;
-  private int actionColor;
+  private int background, navigationIcon, actionImage;
+  private String title, action;
+  private int titleSize, titleColor, actionSize, actionColor;
+  private boolean showIcon;
+  private LinearLayout actionLl;
+  private ImageView backIv, actionIv;
+  private TextView actionTv;
 
   public NavigationBar(Context context, AttributeSet attrs) {
     super(context, attrs);
@@ -49,22 +44,24 @@ public class NavigationBar extends LinearLayout {
     actionList = new ArrayList<>();
     initAttributeSet(attrs);
     initViews();
+    initListener();
   }
 
   private void initAttributeSet(AttributeSet attrs) {
     TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.NavigationBar);
     if (typedArray != null) {
-      background = typedArray.getResourceId(R.styleable.NavigationBar_bgColor,
-          ContextCompat.getColor(context, R.color.white));
+      background = ContextCompat.getColor(context,
+          typedArray.getResourceId(R.styleable.NavigationBar_bgColor, R.color.white));
       navigationIcon = typedArray.getResourceId(R.styleable.NavigationBar_navigationIcon,
           R.mipmap.ic_title_back);
+      showIcon = typedArray.getBoolean(R.styleable.NavigationBar_showIcon, true);
       actionImage = typedArray.getResourceId(R.styleable.NavigationBar_actionImage, 0);
       title = typedArray.getString(R.styleable.NavigationBar_titleText);
       titleSize = (int) typedArray.getDimension(R.styleable.NavigationBar_titleSize, 18);
       titleColor = typedArray.getColor(R.styleable.NavigationBar_titleTextColor,
-          ContextCompat.getColor(context, R.color.charcoalGrey));
+          ContextCompat.getColor(context, R.color.white));
       action = typedArray.getString(R.styleable.NavigationBar_actionText);
-      actionColor = typedArray.getColor(R.styleable.NavigationBar_actionTextColor,
+      actionColor = typedArray.getResourceId(R.styleable.NavigationBar_actionTextColor,
           ContextCompat.getColor(context, R.color.coolGrey));
       actionSize = (int) typedArray.getDimension(R.styleable.NavigationBar_actionTextSize, 16);
       typedArray.recycle();
@@ -72,54 +69,64 @@ public class NavigationBar extends LinearLayout {
   }
 
   private void initViews() {
-    binding = DataBindingUtil.inflate(LayoutInflater.from(context), R.layout.navigation_bar, null,
-        true);
-    binding.setPresenter(new Presenter());
-    binding.rootLayout.setBackgroundColor(background);
-    binding.backIv.setImageResource(navigationIcon);
-    if (actionImage != 0)
-      binding.actionImage.setImageResource(actionImage);
-    binding.titleTv.setText(title);
-    binding.titleTv.setTextColor(titleColor);
-    binding.titleTv.setTextSize(TypedValue.COMPLEX_UNIT_DIP, titleSize);
+    LayoutInflater.from(context).inflate(R.layout.navigation_bar, this);
+    // NavigationBarBinding barBinding = DataBindingUtil.bind(getChildAt(0));
+    LinearLayout rootLl = (LinearLayout) findViewById(R.id.root_layout);
+    backIv = (ImageView) findViewById(R.id.back_iv);
+    backIv.setVisibility(showIcon ? VISIBLE : INVISIBLE);
+    TextView titleTv = (TextView) findViewById(R.id.title_tv);
+    actionLl = (LinearLayout) findViewById(R.id.action_ll);
+    actionIv = (ImageView) findViewById(R.id.action_iv);
+    actionTv = (TextView) findViewById(R.id.action_tv);
+    rootLl.setBackgroundColor(background);
+    backIv.setImageResource(navigationIcon);
+    titleTv.setTextColor(titleColor);
+    titleTv.setText(title);
+    titleTv.setTextSize(TypedValue.COMPLEX_UNIT_DIP, titleSize);
     if (IsEmpty.string(action))
-      binding.actionTv.setVisibility(GONE);
-    binding.actionTv.setText(action);
-    binding.actionTv.setTextColor(actionColor);
-    binding.actionTv.setTextSize(TypedValue.COMPLEX_UNIT_DIP, actionSize);
-    addView(binding.getRoot(),
-        new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+      actionTv.setVisibility(GONE);
+    if (actionImage != 0)
+      actionIv.setImageResource(actionImage);
+    actionTv.setText(action);
+    actionTv.setTextColor(actionColor);
+    actionTv.setTextSize(TypedValue.COMPLEX_UNIT_DIP, actionSize);
+  }
+
+  private void initListener() {
+    backIv.setOnClickListener(new OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        if (!IsEmpty.object(listener))
+          listener.onBack();
+      }
+    });
+    actionIv.setOnClickListener(new OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        if (!IsEmpty.object(listener))
+          listener.performAction(v);
+      }
+    });
+    actionTv.setOnClickListener(new OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        if (!IsEmpty.object(listener))
+          listener.performAction(v);
+      }
+    });
   }
 
   public void setListener(NavigationBarClickListener listener) {
     this.listener = listener;
   }
 
-  public class Presenter {
-
-    public void onBack() {
-      if (!IsEmpty.object(listener))
-        listener.onBack();
-    }
-
-    public void onActionImage() {
-      if (!IsEmpty.object(listener))
-        listener.performAction(binding.actionImage);
-    }
-
-    public void onActionText() {
-      if (!IsEmpty.object(listener))
-        listener.performAction(binding.actionTv);
-    }
-  }
-
   public void addAction(NavigationBarAction action) {
     if (actionList.size() > 2)
       return;
     actionList.add(inflaterAction(action));
-    binding.actionLl.removeAllViews();
+    actionLl.removeAllViews();
     for (View view : actionList)
-      binding.actionLl.addView(view);
+      actionLl.addView(view);
   }
 
   private View inflaterAction(NavigationBarAction action) {
@@ -131,7 +138,7 @@ public class NavigationBar extends LinearLayout {
       int padding = DensityUtil.dip2px(11);
       imageView.setPadding(padding, padding, padding, padding);
       view = imageView;
-      view.setLayoutParams(binding.actionImage.getLayoutParams());
+      view.setLayoutParams(actionIv.getLayoutParams());
     } else if (action instanceof TextAction) {
       TextView textView = new TextView(getContext());
       textView.setText(action.getText());
@@ -140,7 +147,7 @@ public class NavigationBar extends LinearLayout {
       textView.setGravity(Gravity.CENTER_VERTICAL | Gravity.END);
       textView.setPadding(DensityUtil.dip2px(4), 0, DensityUtil.dip2px(12), 0);
       view = textView;
-      view.setLayoutParams(binding.actionImage.getLayoutParams());
+      view.setLayoutParams(actionIv.getLayoutParams());
     } else if (action instanceof ImageTextAction) {
       TextView textView = new TextView(getContext());
       textView.setText(action.getText());

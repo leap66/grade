@@ -7,7 +7,7 @@
 
         <variable
             name="item"
-            type="com.leap.grade.data.UpdateModel"/>
+            type="com.leap.base.data.base.UpdateModel"/>
 
         <variable
             name="presenter"
