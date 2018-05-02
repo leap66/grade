@@ -27,6 +27,7 @@ public class CountTimeTextView extends AppCompatTextView {
   public CountTimeTextView(Context context, AttributeSet attrs) {
     super(context, attrs);
     setGravity(Gravity.CENTER);
+    setEnabled(false);
     setText(getResources().getString(R.string.send_code));
     setBackground(ContextCompat.getDrawable(getContext(), R.drawable.bg_send_selector));
   }
