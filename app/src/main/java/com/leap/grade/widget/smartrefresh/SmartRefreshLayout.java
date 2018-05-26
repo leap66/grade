@@ -182,7 +182,7 @@ public class SmartRefreshLayout extends PullRefreshLayout {
 
   @Override
   protected boolean onScroll(float y) {
-    if (mHeader != null && y >= 0) {
+    if (mHeader != null && y >= 0 && hasHeader) {
       boolean intercept = mHeader.onScroll(y);
       if (y != 0) {
         if (!isRefresh) {
@@ -198,7 +198,7 @@ public class SmartRefreshLayout extends PullRefreshLayout {
         return intercept;
       }
     }
-    if (mFooter != null && y <= 0) {
+    if (mFooter != null && y <= 0 && hasFooter) {
       boolean intercept = mFooter.onScroll(y);
       if (y != 0) {
         if (!isLoadMore) {

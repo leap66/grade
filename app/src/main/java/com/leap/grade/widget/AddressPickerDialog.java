@@ -82,7 +82,7 @@ public abstract class AddressPickerDialog extends AppCompatDialog {
 
   public class Presenter implements BaseViewAdapter.Presenter {
 
-    public void onCancel() {
+    public void onClose() {
       dismiss();
     }
 

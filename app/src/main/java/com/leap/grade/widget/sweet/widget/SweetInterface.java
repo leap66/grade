@@ -31,5 +31,7 @@ public interface SweetInterface<T> {
 
   T setImageResId(int resId);
 
+  T setType(SweetType type);
+
   T setAutoDismiss(boolean auto);
 }

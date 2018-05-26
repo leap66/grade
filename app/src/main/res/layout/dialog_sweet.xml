@@ -30,7 +30,17 @@
                 android:layout_height="48dp"
                 android:layout_marginTop="12dp"
                 android:contentDescription="@null"
-                android:src="@mipmap/ic_dialog_success"
+                android:visibility="gone"/>
+
+            <com.leap.grade.widget.IconView
+                android:id="@+id/custom_ic"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="12dp"
+                android:gravity="center"
+                android:text="@string/icon_success"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_20"
                 android:visibility="gone"/>
 
             <TextView

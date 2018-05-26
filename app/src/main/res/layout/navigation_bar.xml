@@ -1,27 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <LinearLayout
-        android:id="@+id/root_layout"
+        android:id="@+id/bar_root_layout"
         android:layout_width="match_parent"
         android:layout_height="44dp"
         android:background="@color/white">
 
-        <ImageView
-            android:id="@+id/back_iv"
-            android:layout_width="44dp"
-            android:layout_height="match_parent"
-            android:contentDescription="@null"
-            android:padding="11dp"
-            android:src="@mipmap/ic_title_back"/>
 
-        <Space
-            android:layout_width="44dp"
-            android:layout_height="match_parent"/>
+        <LinearLayout
+            android:layout_width="88dp"
+            android:layout_height="match_parent">
+
+            <com.leap.grade.widget.IconView
+                android:id="@+id/bar_back_ic"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:maxLines="1"
+                android:text="@string/icon_arrow_left"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_16"/>
+
+            <Space style="@style/space_horizontal"/>
+        </LinearLayout>
 
         <TextView
-            android:id="@+id/title_tv"
+            android:id="@+id/bar_title_tv"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -29,31 +36,35 @@
             android:gravity="center"
             android:maxLines="1"
             android:textColor="@color/charcoalGrey"
-            android:textSize="@dimen/smallTitle"/>
+            android:textSize="@dimen/smallTitle"
+            android:textStyle="bold"/>
 
         <LinearLayout
-            android:id="@+id/action_ll"
             android:layout_width="88dp"
             android:layout_height="match_parent"
-            android:gravity="end"
-            tools:ignore="UseCompoundDrawables">
+            android:gravity="end">
 
-            <ImageView
-                android:id="@+id/action_iv"
-                android:layout_width="44dp"
+            <com.leap.grade.widget.IconView
+                android:id="@+id/bar_action_sub"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:contentDescription="@null"
-                android:padding="5dp"/>
-
-            <TextView
-                android:id="@+id/action_tv"
-                android:layout_width="44dp"
-                android:layout_height="match_parent"
+                android:layout_weight="1"
                 android:ellipsize="end"
                 android:gravity="center"
                 android:maxLines="1"
-                android:textColor="@color/coolGrey"
-                android:textSize="@dimen/text"/>
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_16"/>
+
+            <com.leap.grade.widget.IconView
+                android:id="@+id/bar_action_ic"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:maxLines="1"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_16"/>
         </LinearLayout>
     </LinearLayout>
 </layout>

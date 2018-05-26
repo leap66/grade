@@ -1,7 +1,5 @@
 package com.leap.grade.widget.navigation.widget;
 
-import android.view.View;
-
 /**
  * NavigationBarClickListener : 导航栏监听
  * <p>
@@ -11,6 +9,9 @@ public abstract class NavigationBarClickListener {
 
   public abstract void onBack();
 
-  public void performAction(View view) {
+  public void onAction() {
+  }
+
+  public void onActionSub() {
   }
 }

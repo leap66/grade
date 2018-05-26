@@ -3,6 +3,7 @@
     <color name="transparent">#00000000</color>
     <color name="white">#FFFFFF</color>
     <color name="charcoalGrey">#2C3036</color><!-- 主色，主要用于一级文本以及阴影 -->
+    <color name="blue_grey">#858fa3</color><!-- 默认图片颜色 -->
     <color name="coolGrey">#979799</color><!-- 次级文本色 -->
     <color name="silver">#C6C6C8</color><!-- 提示文本色 -->
     <color name="silverTwo">#DCDDDF</color><!-- 强分割线 -->

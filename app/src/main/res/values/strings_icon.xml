@@ -1,0 +1,98 @@
+<resources>
+    <!--IconFont图标库-->
+    <!--闪关开-->
+    <string name="icon_flash_on">&#xe666;</string>
+    <!--闪关关-->
+    <string name="icon_flash_off">&#xe665;</string>
+    <!--二维码-->
+    <string name="icon_qr_code">&#xe68d;</string>
+    <!--关闭-->
+    <string name="icon_close">&#xe61e;</string>
+    <!--清除-->
+    <string name="icon_clear">&#xe647;</string>
+    <!--成功-->
+    <string name="icon_success">&#xe653;</string>
+    <!--错误-->
+    <string name="icon_error">&#xe644;</string>
+    <!--对勾-->
+    <string name="icon_tick">&#xe64b;</string>
+    <!--占位图-->
+    <string name="icon_placeholder">&#xe67c;</string>
+    <!--搜一搜-->
+    <string name="icon_query">&#xe61b;</string>
+    <!--语音撤回-->
+    <string name="icon_cancel">&#xe904;</string>
+    <!--搜索-->
+    <string name="icon_search">&#xe65a;</string>
+    <!--增加-->
+    <string name="icon_add">&#xe618;</string>
+    <!--群组-->
+    <string name="icon_crowd">&#xe649;</string>
+    <!--会员-->
+    <string name="icon_member">&#xe6e3;</string>
+    <!--开关-开-->
+    <string name="icon_switch_open">&#xe617;</string>
+    <!--设置-->
+    <string name="icon_set">&#xe72d;</string>
+    <!--评论-->
+    <string name="icon_discuss">&#xe616;</string>
+    <!--手机-->
+    <string name="icon_phone">&#xe615;</string>
+    <!--朋友圈-->
+    <string name="icon_friend_side">&#xe6de;</string>
+    <!--我的-->
+    <string name="icon_user">&#xe61a;</string>
+    <!--收藏-->
+    <string name="icon_collect">&#xe60a;</string>
+    <!--密码不可见-->
+    <string name="icon_pwd_hide">&#xe611;</string>
+    <!--密码可见-->
+    <string name="icon_pwd_show">&#xe60f;</string>
+    <!--提示-右-->
+    <string name="icon_hint_right">&#xe608;</string>
+    <!--开关-关-->
+    <string name="icon_switch_close">&#xe643;</string>
+    <!--扫一扫-->
+    <string name="icon_scan">&#xe607;</string>
+    <!--箭头-右-->
+    <string name="icon_arrow_right">&#xe606;</string>
+    <!--箭头-下-->
+    <string name="icon_arrow_bottom">&#xe605;</string>
+    <!--箭头-左-->
+    <string name="icon_arrow_left">&#xe66f;</string>
+    <!--箭头-上-->
+    <string name="icon_arrow_top">&#xe66e;</string>
+    <!--验证码-->
+    <string name="icon_code">&#xe604;</string>
+    <!--密码-->
+    <string name="icon_pwd">&#xe699;</string>
+    <!--名字-->
+    <string name="icon_name">&#xe60e;</string>
+    <!--新增-->
+    <string name="icon_friend_add">&#xe687;</string>
+    <!--信息-->
+    <string name="icon_record">&#xe73d;</string>
+    <!--链接-->
+    <string name="icon_link">&#xe633;</string>
+    <!--通讯录-->
+    <string name="icon_note">&#xe6c2;</string>
+    <!--省略-->
+    <string name="icon_omit">&#xe60b;</string>
+    <!--摇一摇-->
+    <string name="icon_shake">&#xe7f1;</string>
+    <!--相册-->
+    <string name="icon_album">&#xe642;</string>
+    <!--发现-->
+    <string name="icon_discovery">&#xe601;</string>
+    <!--语音-左-->
+    <string name="icon_voice_left">&#xe62b;</string>
+    <!--语音-右-->
+    <string name="icon_voice_right">&#xe628;</string>
+    <!--标签-->
+    <string name="icon_tag">&#xe610;</string>
+    <!--拍照-->
+    <string name="icon_photo_take">&#xe645;</string>
+    <!--语音-->
+    <!--语音-->
+    <string name="icon_voice">&#xe805;</string>
+</resources>

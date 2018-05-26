@@ -5,6 +5,7 @@ import android.content.Context;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
@@ -16,6 +17,7 @@ import com.leap.base.util.IsEmpty;
 import com.leap.grade.databinding.DialogSweetBinding;
 import com.leap.grade.widget.sweet.widget.SweetClickListener;
 import com.leap.grade.widget.sweet.widget.SweetInterface;
+import com.leap.grade.widget.sweet.widget.SweetType;
 
 /**
  * LoadingDialog : 加载框
@@ -142,6 +144,28 @@ public class SweetDialog extends Dialog implements SweetInterface<SweetDialog> {
   public SweetDialog setImageResId(int resId) {
     binding.customIv.setVisibility(resId == 0 ? View.GONE : View.VISIBLE);
     binding.customIv.setImageResource(resId);
+    return this;
+  }
+
+  @Override
+  public SweetDialog setType(SweetType type) {
+    if (!IsEmpty.object(type)) {
+      binding.customIc.setVisibility(View.VISIBLE);
+      switch (type) {
+      case SUCCESS:
+        binding.customIc.setText(getContext().getString(R.string.icon_success));
+        binding.customIc.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.softBlue));
+        break;
+      case FAILED:
+        binding.customIc.setText(getContext().getString(R.string.icon_error));
+        binding.customIc.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.lipstick));
+        break;
+      case WARNING:
+        binding.customIc.setText(getContext().getString(R.string.icon_error));
+        binding.customIc.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.mango));
+        break;
+      }
+    }
     return this;
   }
 

@@ -21,8 +21,7 @@
         android:gravity="center_vertical"
         android:onClick="@{()->presenter.onItem(item)}"
         android:paddingLeft="24dp"
-        android:paddingRight="24dp"
-        tools:ignore="UseCompoundDrawables">
+        android:paddingRight="24dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -33,13 +32,14 @@
             android:textColor="@{item.newUcn?@color/lipstick:@color/charcoalGrey}"
             android:textSize="@dimen/text"/>
 
-        <ImageView
-            android:layout_width="16dp"
-            android:layout_height="16dp"
+        <com.leap.grade.widget.IconView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginStart="10dp"
-            android:contentDescription="@null"
-            android:src="@mipmap/ic_address_checked"
+            android:text="@string/icon_tick"
+            android:textColor="@color/lipstick"
+            android:textSize="@dimen/text_size_20"
             android:visibility="@{item.newUcn?View.VISIBLE:View.GONE}"/>
 
     </LinearLayout>

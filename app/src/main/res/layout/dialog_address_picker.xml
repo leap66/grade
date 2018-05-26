@@ -39,16 +39,16 @@
                 android:textSize="@dimen/smallTitle"
                 tools:ignore="RelativeOverlap"/>
 
-            <ImageView
+            <com.leap.grade.widget.IconView
                 android:layout_width="44dp"
                 android:layout_height="44dp"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
-                android:layout_gravity="end"
-                android:contentDescription="@null"
-                android:onClick="@{()->presenter.onCancel()}"
-                android:padding="10dp"
-                android:src="@mipmap/ic_close_grey"/>
+                android:gravity="center"
+                android:onClick="@{()->presenter.onClose()}"
+                android:text="@string/icon_close"
+                android:textColor="@color/lipstick"
+                android:textSize="@dimen/text_size_20"/>
         </RelativeLayout>
 
         <LinearLayout

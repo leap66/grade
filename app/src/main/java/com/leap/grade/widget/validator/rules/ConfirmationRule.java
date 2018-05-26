@@ -20,7 +20,7 @@ public class ConfirmationRule implements Rule {
 
   @Override
   public boolean validate(String value) {
-    return field.getText().equals(value);
+    return field.getText().toString().equals(value);
   }
 
   @Override

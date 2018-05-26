@@ -2,9 +2,9 @@ package com.leap.grade.util;
 
 import android.content.Context;
 
-import com.leap.grade.R;
 import com.leap.grade.widget.sweet.SweetDialog;
 import com.leap.grade.widget.sweet.widget.SweetClickListener;
+import com.leap.grade.widget.sweet.widget.SweetType;
 
 /**
  * DialogUtil : Dialog工具类
@@ -15,7 +15,7 @@ public class DialogUtil {
 
   public static SweetDialog getErrorDialog(Context context, String errorMsg) {
     return new SweetDialog(context).setHead(errorMsg).setCancel(null).setAutoDismiss(true)
-        .setImageResId(R.mipmap.ic_dialog_warning);
+        .setType(SweetType.FAILED);
   }
 
   public static SweetDialog getErrorDialog(Context context, int errorMsg) {
@@ -52,7 +52,7 @@ public class DialogUtil {
 
   public static SweetDialog getSuccessDialog(Context context, String hintMsg) {
     return new SweetDialog(context).setHead(hintMsg).setCancel(null)
-        .setImageResId(R.mipmap.ic_dialog_success).setAutoDismiss(true);
+        .setType(SweetType.SUCCESS).setAutoDismiss(true);
   }
 
   public static SweetDialog getCustomDialog(Context context, String title, String content,
