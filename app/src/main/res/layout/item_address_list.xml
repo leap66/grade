@@ -32,7 +32,7 @@
             android:textColor="@{item.newUcn?@color/lipstick:@color/charcoalGrey}"
             android:textSize="@dimen/text"/>
 
-        <com.leap.grade.widget.IconView
+        <com.leap.grade.widget.CustomIcon
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"

@@ -32,7 +32,7 @@
                 android:contentDescription="@null"
                 android:visibility="gone"/>
 
-            <com.leap.grade.widget.IconView
+            <com.leap.grade.widget.CustomIcon
                 android:id="@+id/custom_ic"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
@@ -40,7 +40,7 @@
                 android:gravity="center"
                 android:text="@string/icon_success"
                 android:textColor="@color/white"
-                android:textSize="@dimen/text_size_20"
+                android:textSize="@dimen/text_size_40"
                 android:visibility="gone"/>
 
             <TextView
@@ -100,9 +100,8 @@
                 android:textSize="@dimen/smallTitle"/>
 
             <View
-                android:layout_width="0.5dp"
-                android:layout_height="match_parent"
-                android:background="@color/silverThree"/>
+                android:id="@+id/sweet_line"
+                style="@style/up_divider_item"/>
 
             <TextView
                 android:id="@+id/confirm_btn"

@@ -88,6 +88,8 @@ public class SweetDialog extends Dialog implements SweetInterface<SweetDialog> {
   public SweetDialog setCancel(String content) {
     binding.cancelBtn.setVisibility(IsEmpty.string(content) ? View.GONE : View.VISIBLE);
     binding.cancelBtn.setText(content);
+    if (IsEmpty.string(content))
+      binding.sweetLine.setVisibility(View.GONE);
     return this;
   }
 
@@ -95,6 +97,8 @@ public class SweetDialog extends Dialog implements SweetInterface<SweetDialog> {
   public SweetDialog setConfirm(String content) {
     binding.confirmBtn.setVisibility(IsEmpty.string(content) ? View.GONE : View.VISIBLE);
     binding.confirmBtn.setText(content);
+    if (IsEmpty.string(content))
+      binding.confirmBtn.setVisibility(View.GONE);
     return this;
   }
 
@@ -154,15 +158,15 @@ public class SweetDialog extends Dialog implements SweetInterface<SweetDialog> {
       switch (type) {
       case SUCCESS:
         binding.customIc.setText(getContext().getString(R.string.icon_success));
-        binding.customIc.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.softBlue));
+        binding.customIc.setTextColor(ContextCompat.getColor(getContext(), R.color.softBlue));
         break;
       case FAILED:
         binding.customIc.setText(getContext().getString(R.string.icon_error));
-        binding.customIc.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.lipstick));
+        binding.customIc.setTextColor(ContextCompat.getColor(getContext(), R.color.lipstick));
         break;
       case WARNING:
         binding.customIc.setText(getContext().getString(R.string.icon_error));
-        binding.customIc.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.mango));
+        binding.customIc.setTextColor(ContextCompat.getColor(getContext(), R.color.mango));
         break;
       }
     }
