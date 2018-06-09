@@ -26,8 +26,6 @@ import com.leap.grade.util.DialogUtil;
 
 import java.util.List;
 
-import static com.taobao.accs.ACCSManager.mContext;
-
 /**
  * AddressPickerDialog : 地址选择器
  * <p>
@@ -54,7 +52,7 @@ public abstract class AddressPickerDialog extends AppCompatDialog {
     animationDrawable = (AnimationDrawable) binding.progressbarIv.getDrawable();
     adapter = new SingleTypeAdapter<>(getContext(), R.layout.item_address_list);
     adapter.setPresenter(new Presenter());
-    LinearLayoutManager manager = new LinearLayoutManager(mContext);
+    LinearLayoutManager manager = new LinearLayoutManager(getContext());
     manager.setOrientation(LinearLayoutManager.VERTICAL);
     binding.rootRcv.setLayoutManager(manager);
     binding.rootRcv.setAdapter(adapter);
