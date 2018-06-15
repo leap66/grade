@@ -1,5 +1,6 @@
 package com.leap.grade.widget;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
@@ -32,7 +33,7 @@ public class ClearEditText extends AppCompatEditText {
     addTextChangedListener(new OnTextChangedListener() {
       @Override
       public void onTextChanged(CharSequence s, int start, int before, int count) {
-        updateClearIcon(!IsEmpty.string(s.toString()));
+        updateClearIcon(!IsEmpty.string(s.toString()) && hasFocus());
       }
     });
   }
@@ -45,6 +46,7 @@ public class ClearEditText extends AppCompatEditText {
   }
 
   @Override
+  @SuppressLint("ClickableViewAccessibility")
   public boolean onTouchEvent(MotionEvent event) {
     if (event.getAction() == MotionEvent.ACTION_UP) {
       if (getCompoundDrawables()[2] != null) {
