@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
 
         <variable
             name="item"
-            type="com.leap.base.data.base.BUcn"/>
+            type="com.leap.base.data.base.BUcn" />
 
         <variable
             name="presenter"
-            type="com.leap.grade.widget.AddressPickerDialog.Presenter"/>
+            type="com.leap.grade.widget.AddressPickerDialog.Presenter" />
 
-        <import type="android.view.View"/>
+        <import type="android.view.View" />
     </data>
 
     <LinearLayout
@@ -20,8 +19,8 @@
         android:layout_height="44dp"
         android:gravity="center_vertical"
         android:onClick="@{()->presenter.onItem(item)}"
-        android:paddingLeft="24dp"
-        android:paddingRight="24dp">
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -30,7 +29,7 @@
             android:maxLines="1"
             android:text="@{item.name}"
             android:textColor="@{item.newUcn?@color/lipstick:@color/charcoalGrey}"
-            android:textSize="@dimen/text"/>
+            android:textSize="@dimen/text" />
 
         <com.leap.grade.widget.CustomIcon
             android:layout_width="wrap_content"
@@ -39,8 +38,8 @@
             android:layout_marginStart="10dp"
             android:text="@string/icon_tick"
             android:textColor="@color/lipstick"
-            android:textSize="@dimen/text_size_20"
-            android:visibility="@{item.newUcn?View.VISIBLE:View.GONE}"/>
+            android:textSize="@dimen/text_size_14"
+            android:visibility="@{item.newUcn?View.VISIBLE:View.GONE}" />
 
     </LinearLayout>
 </layout>
