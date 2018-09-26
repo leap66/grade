@@ -15,7 +15,7 @@ public class DialogUtil {
 
   public static SweetDialog getErrorDialog(Context context, String errorMsg) {
     return new SweetDialog(context).setHead(errorMsg).setCancel(null).setAutoDismiss(true)
-        .setType(SweetType.FAILED);
+        .setType(SweetType.WARNING);
   }
 
   public static SweetDialog getErrorDialog(Context context, int errorMsg) {
@@ -51,8 +51,8 @@ public class DialogUtil {
   }
 
   public static SweetDialog getSuccessDialog(Context context, String hintMsg) {
-    return new SweetDialog(context).setHead(hintMsg).setCancel(null)
-        .setType(SweetType.SUCCESS).setAutoDismiss(true);
+    return new SweetDialog(context).setHead(hintMsg).setCancel(null).setType(SweetType.SUCCESS)
+        .setAutoDismiss(true);
   }
 
   public static SweetDialog getCustomDialog(Context context, String title, String content,

@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.gyf.barlibrary.ImmersionBar;
+import com.trello.rxlifecycle.LifecycleProvider;
 import com.trello.rxlifecycle.components.support.RxFragment;
 
 /**
@@ -17,6 +18,7 @@ import com.trello.rxlifecycle.components.support.RxFragment;
  */
 public abstract class BaseBarFragment extends RxFragment {
   protected Context context;
+  protected LifecycleProvider provider;
   protected boolean mIsVisible;
   protected boolean mIsPrepare;
   protected boolean mIsImmersion;
@@ -26,6 +28,7 @@ public abstract class BaseBarFragment extends RxFragment {
   public void onAttach(Context context) {
     super.onAttach(context);
     this.context = context;
+    provider = this;
   }
 
   @Nullable
