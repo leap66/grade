@@ -29,7 +29,9 @@ import com.leap.grade.widget.smartrefresh.base.support.impl.Refreshable;
 import com.leap.grade.widget.smartrefresh.base.support.utils.CanPullUtil;
 
 /**
- * 定义了下拉刷新和上推加载
+ * SmartRefreshLayout : 定义了下拉刷新和上推加载
+ * <p>
+ * </> Created by ylwei on 2018/4/2.
  */
 public class SmartRefreshLayout extends PullRefreshLayout {
   private DefaultPullLayout mCenterViewContainer;
