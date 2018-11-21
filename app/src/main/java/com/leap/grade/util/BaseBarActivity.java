@@ -9,7 +9,9 @@ import android.view.View;
 import android.widget.EditText;
 
 import com.gyf.barlibrary.ImmersionBar;
+import com.leap.base.util.IsEmpty;
 import com.leap.base.util.KeyBoardUtil;
+import com.leap.base.widget.LoadingLayout;
 import com.trello.rxlifecycle.LifecycleProvider;
 import com.trello.rxlifecycle.components.support.RxAppCompatActivity;
 
@@ -126,5 +128,19 @@ public abstract class BaseBarActivity extends RxAppCompatActivity {
     if (mStatusBar != null)
       mStatusBar.destroy();
     super.onDestroy();
+  }
+
+  protected LoadingLayout getLoadingLayout() {
+    return null;
+  }
+
+  protected void startLoading() {
+    if (!IsEmpty.object(getLoadingLayout()))
+      getLoadingLayout().startLoading();
+  }
+
+  protected void stopLoading() {
+    if (!IsEmpty.object(getLoadingLayout()))
+      getLoadingLayout().stopLoading();
   }
 }

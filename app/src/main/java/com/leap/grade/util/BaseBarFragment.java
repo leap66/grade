@@ -11,6 +11,8 @@ import com.gyf.barlibrary.ImmersionBar;
 import com.trello.rxlifecycle.LifecycleProvider;
 import com.trello.rxlifecycle.components.support.RxFragment;
 
+import org.greenrobot.eventbus.EventBus;
+
 /**
  * BaseBarFragment : 基础Fragment
  * <p>
@@ -19,10 +21,10 @@ import com.trello.rxlifecycle.components.support.RxFragment;
 public abstract class BaseBarFragment extends RxFragment {
   protected Context context;
   protected LifecycleProvider provider;
-  protected boolean mIsVisible;
-  protected boolean mIsPrepare;
-  protected boolean mIsImmersion;
-  protected ImmersionBar mStatusBar;
+  protected boolean isVisible;
+  protected boolean isPrepare;
+  protected boolean isImmersion;
+  protected ImmersionBar immersionBar;
 
   @Override
   public void onAttach(Context context) {
@@ -38,6 +40,7 @@ public abstract class BaseBarFragment extends RxFragment {
     View rootView = initComponent(inflater, null);
     createEventHandlers();
     loadData(savedInstanceState);
+    EventBus.getDefault().register(this);
     return rootView;
   }
 
@@ -45,8 +48,8 @@ public abstract class BaseBarFragment extends RxFragment {
   public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
     super.onViewCreated(view, savedInstanceState);
     if (isLazyLoad()) {
-      mIsPrepare = true;
-      mIsImmersion = true;
+      isPrepare = true;
+      isImmersion = true;
       onLazyLoad();
     }
     if (useStatusBar())
@@ -56,10 +59,10 @@ public abstract class BaseBarFragment extends RxFragment {
   protected void initStatusBar() {
     if (statusBarView() != null)
       ImmersionBar.setTitleBar(getActivity(), statusBarView());
-    mStatusBar = ImmersionBar.with(getActivity(), this);
+    immersionBar = ImmersionBar.with(getActivity(), this);
     if (isDarkFont())
-      mStatusBar.statusBarDarkFont(true, 0.2f);
-    mStatusBar.init();
+      immersionBar.statusBarDarkFont(true, 0.2f);
+    immersionBar.init();
   }
 
   protected View statusBarView() {
@@ -78,10 +81,10 @@ public abstract class BaseBarFragment extends RxFragment {
   public void setUserVisibleHint(boolean isVisibleToUser) {
     super.setUserVisibleHint(isVisibleToUser);
     if (getUserVisibleHint()) {
-      mIsVisible = true;
+      isVisible = true;
       onVisible();
     } else {
-      mIsVisible = false;
+      isVisible = false;
       onInvisible();
     }
   }
@@ -94,8 +97,8 @@ public abstract class BaseBarFragment extends RxFragment {
   }
 
   private void onLazyLoad() {
-    if (mIsVisible && mIsPrepare) {
-      mIsPrepare = false;
+    if (isVisible && isPrepare) {
+      isPrepare = false;
     }
   }
 
@@ -113,19 +116,20 @@ public abstract class BaseBarFragment extends RxFragment {
   @Override
   public void onHiddenChanged(boolean hidden) {
     super.onHiddenChanged(hidden);
-    if (!hidden && mStatusBar != null)
-      mStatusBar.init();
+    if (!hidden && immersionBar != null)
+      immersionBar.init();
   }
 
   @Override
   public void onDestroy() {
-    if (mStatusBar != null) {
-      if (mStatusBar.getBarParams() != null) {
+    if (immersionBar != null) {
+      if (immersionBar.getBarParams() != null) {
         // 去除statusBarViewByHeight持有的引用。
-        mStatusBar.getBarParams().statusBarViewByHeight = null;
+        immersionBar.getBarParams().statusBarViewByHeight = null;
       }
-      mStatusBar.destroy();
+      immersionBar.destroy();
     }
+    EventBus.getDefault().unregister(this);
     super.onDestroy();
   }
 }

@@ -86,19 +86,23 @@ public class SweetDialog extends Dialog implements SweetInterface<SweetDialog> {
 
   @Override
   public SweetDialog setCancel(String content) {
-    binding.cancelBtn.setVisibility(IsEmpty.string(content) ? View.GONE : View.VISIBLE);
-    binding.cancelBtn.setText(content);
-    if (IsEmpty.string(content))
+    if (IsEmpty.object(content)) {
+      binding.cancelBtn.setVisibility(View.GONE);
       binding.sweetLine.setVisibility(View.GONE);
+    } else {
+      binding.cancelBtn.setText(content);
+    }
     return this;
   }
 
   @Override
   public SweetDialog setConfirm(String content) {
-    binding.confirmBtn.setVisibility(IsEmpty.string(content) ? View.GONE : View.VISIBLE);
-    binding.confirmBtn.setText(content);
-    if (IsEmpty.string(content))
+    if (IsEmpty.object(content)) {
       binding.confirmBtn.setVisibility(View.GONE);
+      binding.sweetLine.setVisibility(View.GONE);
+    } else {
+      binding.confirmBtn.setText(content);
+    }
     return this;
   }
 

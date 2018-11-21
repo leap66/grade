@@ -1,16 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="transparent">#00000000</color>
-    <color name="white">#FFFFFF</color>
-    <color name="charcoalGrey">#2C3036</color><!-- 主色，主要用于一级文本以及阴影 -->
-    <color name="blue_grey">#858fa3</color><!-- 默认图片颜色 -->
-    <color name="coolGrey">#979799</color><!-- 次级文本色 -->
-    <color name="silver">#C6C6C8</color><!-- 提示文本色 -->
-    <color name="silverTwo">#DCDDDF</color><!-- 强分割线 -->
-    <color name="silverThree">#EBECEE</color><!-- 弱分割线，默认按钮底色 -->
-    <color name="paleGrey">#F5F5F6</color><!-- 默认背景色，搜索框底色 -->
-    <color name="lipstick">#DF2E47</color><!-- 主色，主要用于操作的图标及名称 -->
-    <color name="frenchBlue">#445DB5</color><!-- 链接色 -->
-    <color name="softBlue">#609FE6</color><!-- 帮助提示信息色 -->
-    <color name="mango">#FFA723</color><!-- 键值色 -->
+
 </resources>
