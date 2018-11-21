@@ -1,4 +1,4 @@
 [submodule "base"]
 	path = base
-	url =  ssh://git@github.com:weiylnn/base.git
-	branch = feature/v-0.1.0
+	url = git@github.com:weiylnn/base.git
+	branch = develop
