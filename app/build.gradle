@@ -22,9 +22,9 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation project(':base')
-    implementation 'com.gyf.barlibrary:barlibrary:2.2.9'
-    implementation 'com.nineoldandroids:library:2.4.0'
-    implementation 'com.tonicartos:superslim:0.4.13'
-    implementation 'com.makeramen:roundedimageview:2.3.0'
+    api project(':base')
+    api 'com.gyf.barlibrary:barlibrary:2.2.9'
+    api 'com.nineoldandroids:library:2.4.0'
+    api 'com.tonicartos:superslim:0.4.13'
+    api 'com.makeramen:roundedimageview:2.3.0'
 }
