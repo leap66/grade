@@ -13,8 +13,8 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
-import com.github.markzhai.recyclerview.BaseViewAdapter;
-import com.github.markzhai.recyclerview.SingleTypeAdapter;
+import com.leap.base.adapter.typeAdapter.SingleTypeAdapter;
+import com.leap.base.adapter.typeAdapter.widget.BaseViewAdapter;
 import com.leap.base.data.base.BAddress;
 import com.leap.base.data.base.BUcn;
 import com.leap.base.listener.OnConfirmListener;

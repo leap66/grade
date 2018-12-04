@@ -1,11 +1,10 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.3"
+    compileSdkVersion 27
     defaultConfig {
-        minSdkVersion 15
-        targetSdkVersion 25
+        minSdkVersion 19
+        targetSdkVersion 27
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -22,14 +21,10 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile project(':base')
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
-    compile 'com.gyf.barlibrary:barlibrary:2.2.9'
-    compile 'com.nineoldandroids:library:2.4.0'
-    compile 'com.tonicartos:superslim:0.4.13'
-    compile 'com.makeramen:roundedimageview:2.3.0'
-    testCompile 'junit:junit:4.12'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    api project(':base')
+    api 'com.gyf.barlibrary:barlibrary:2.2.9'
+    api 'com.nineoldandroids:library:2.4.0'
+    api 'com.tonicartos:superslim:0.4.13'
+    api 'com.makeramen:roundedimageview:2.3.0'
 }

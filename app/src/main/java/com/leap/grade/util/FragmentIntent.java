@@ -7,8 +7,6 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.app.FragmentTransactionBugFixHack;
-import android.widget.AutoCompleteTextView;
 
 /**
  * FragmentIntent : 自定义FragmentIntent，类Intent
@@ -143,7 +141,6 @@ public class FragmentIntent {
         transaction.commitAllowingStateLoss();
       }
     }
-    FragmentTransactionBugFixHack.injectFragmentTransactionAvailIndicesAutoReverseOrder(manager);
   }
 
   public FragmentIntent putExtra(String name, Serializable value) {
