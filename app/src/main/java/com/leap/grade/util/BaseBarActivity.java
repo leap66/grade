@@ -66,32 +66,22 @@ public abstract class BaseBarActivity extends RxAppCompatActivity {
     return false;
   }
 
-  /**
-   * 初始化界面控件
-   */
+  // 初始化界面控件
   protected abstract void initComponent();
 
-  /**
-   * 初次加载数据
-   */
+  // 初次加载数据
   protected abstract void loadData(Bundle savedInstanceState);
 
-  /**
-   * 界面事件响应
-   */
+  // 界面事件响应
   protected void createEventHandlers() {
   }
 
-  /**
-   * 设置软键盘是否自动隐藏
-   */
+  // 设置软键盘是否自动隐藏
   protected void setKeyboardAutoHide(boolean b) {
     this.keyboardAutoHide = b;
   }
 
-  /**
-   * 点击空白处隐藏软键盘
-   */
+  // 点击空白处隐藏软键盘
   @Override
   public boolean dispatchTouchEvent(MotionEvent ev) {
     if (ev.getAction() == MotionEvent.ACTION_DOWN) {
@@ -105,11 +95,9 @@ public abstract class BaseBarActivity extends RxAppCompatActivity {
     return onTouchEvent(ev);
   }
 
-  /**
-   * 判断当前焦点是否是输入框
-   */
-  public boolean isEdt(View v, MotionEvent event) {
-    if (v != null && (v instanceof EditText)) {
+  // 判断当前焦点是否是输入框
+  private boolean isEdt(View v, MotionEvent event) {
+    if (v instanceof EditText) {
       int[] leftTop = {
           0, 0 };
       v.getLocationInWindow(leftTop);
